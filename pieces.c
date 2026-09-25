@@ -18,3 +18,18 @@ typedef struct {
 
 } Position;
 
+BitBoard GetAllPlayerPieces (Side PlayersSide) {
+
+    return (PlayersSide.Bishops | PlayersSide.Pawns | PlayersSide.Kings | PlayersSide.Queens
+         | PlayersSide.Rooks | PlayersSide.Knights);
+
+}
+
+BitBoard GetAllPiecesOnTheBoard (Position CurrentPosition) {
+
+    Side White = CurrentPosition.White;
+    Side Black = CurrentPosition.Black;
+
+    return (GetAllPlayerPieces(White) | GetAllPlayerPieces(Black));
+
+}
